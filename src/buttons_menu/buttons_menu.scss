@@ -1,0 +1,9 @@
+.buttons_menu_wrapper {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(rgb(193, 133, 249), blueviolet, rgb(193, 133, 249));
+
+  button {
+    cursor: pointer;
+  }
+}

@@ -1,5 +1,5 @@
 import { KeyboardEvent, useState } from 'react';
-import '../../App.scss'
+import styles from "./calculator.module.scss"
 
 function Calculator() {
   const [totalNumber, setTotalNumber] = useState("");
@@ -25,14 +25,14 @@ function Calculator() {
   const readKey = (event: KeyboardEvent) => {
     const validateCharacter = allowedCharacters
       .filter((character) => character === event.key)[0];
-      
-      if (validateCharacter === "="){
-        setTotalNumber(`${inputValue} = ${parse(inputValue)}`);
-      }
 
-      if (validateCharacter !==undefined){
-        setInputValue(`${inputValue}${validateCharacter}`);
-      }
+    if (validateCharacter === "=") {
+      setTotalNumber(`${inputValue} = ${parse(inputValue)}`);
+    }
+
+    if (validateCharacter !== undefined) {
+      setInputValue(`${inputValue}${validateCharacter}`);
+    }
   }
 
   function parse(str: string) {
@@ -76,34 +76,34 @@ function Calculator() {
 
   return (
     <div className='main'>
-      <h1>Calculator</h1>
-      <h2 className='totalNumber'>{totalNumber}</h2>
-      <textarea className='textarea' value={inputValue} onKeyDown={(event) => readKey(event)} disabled={disabled} />
-    
-      <div className="buttonContainer">
-        <button onClick={() => handleInputNumber("7")}>7</button>
-        <button onClick={() => handleInputNumber("8")}>8</button>
-        <button onClick={() => handleInputNumber("9")}>9</button>
-        <button className='button' onClick={() => handleMathOperator("/")}>/</button>
-        <button onClick={() => handleInputNumber("4")}>4</button>
-        <button onClick={() => handleInputNumber("5")}>5</button>
-        <button onClick={() => handleInputNumber("6")}>6</button>
-        <button className='button' onClick={() => handleMathOperator("*")}>*</button>
-        <button onClick={() => handleInputNumber("1")}>1</button>
-        <button onClick={() => handleInputNumber("2")}>2</button>
-        <button onClick={() => handleInputNumber("3")}>3</button>
-        <button className='button' onClick={() => handleMathOperator("-")}>-</button>
-        <button onClick={() => handleInputNumber("0")}>0</button>
-        <button onClick={() => handleInputNumber(".")}>.</button>
-        <button className='button' onClick={calculate}>=</button>
-        <button className='button' onClick={() => handleMathOperator("+")}>+</button>
+      <div className={styles.fon}>
+        <h1>Calculator</h1>
+        <h2 className={styles.totalNumber}>{totalNumber}</h2>
+        <textarea className={styles.textarea} value={inputValue} onKeyDown={(event) => readKey(event)} disabled={disabled} />
+
+        <div className={styles.buttonContainer}>
+          <button className={styles.number_button} onClick={() => handleInputNumber("7")}>7</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("8")}>8</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("9")}>9</button>
+          <button className={styles.number_button} onClick={() => handleMathOperator("/")}>/</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("4")}>4</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("5")}>5</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("6")}>6</button>
+          <button className={styles.number_button} onClick={() => handleMathOperator("*")}>*</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("1")}>1</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("2")}>2</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("3")}>3</button>
+          <button className={styles.number_button} onClick={() => handleMathOperator("-")}>-</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("0")}>0</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber(".")}>.</button>
+          <button className={styles.number_button} onClick={calculate}>=</button>
+          <button className={styles.number_button} onClick={() => handleMathOperator("+")}>+</button>
+        </div>
+
+        {/* {inputValue !== "" && <button className={styles.button} onClick={clearTotalNumber}>Clear</button>} */}
+        <button className={styles.clear_button} onClick={clearTotalNumber}>Clear</button>
       </div>
-
-      {/* {inputValue !== "" && <button className='button' onClick={clearTotalNumber}>Clear</button>} */}
-      <button className='button' onClick={clearTotalNumber}>Clear</button>
-
     </div>
-
   )
 }
 

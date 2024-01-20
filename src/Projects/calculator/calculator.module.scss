@@ -1,0 +1,59 @@
+.fon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: fit-content;
+  max-width: 90%;
+  height: fit-content;
+  max-height: 85%;
+
+  margin-top: 25px;
+  padding: 10px;
+
+  background-color: #f493e0;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -16px 16px 0px inset, rgba(0, 0, 0, 0.1) 0px -16px 15px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 16px 16px;
+
+  .totalNumber {
+    min-height: 20px;
+  }
+
+  .textarea {
+    display: flex;
+    align-items: center;
+    max-width: 95%;
+    padding: 5px;
+    border-radius: 25px;
+  }
+
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 20px;
+
+    .number_button {
+      background-color: #8ca0ff;
+      width: 35px;
+      height: 35px;
+      border: solid 2px;
+      border-radius: 50%;
+    }
+  }
+
+  .clear_button {
+    margin: 10px;
+    width: 30px;
+    min-width: fit-content;
+    height: 30px;
+    background-color: rgb(48, 184, 184);
+    font-size: 18px;
+    border: solid 0.5px;
+    cursor: pointer;
+  }
+
+
+
+}

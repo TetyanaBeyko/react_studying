@@ -1,46 +1,27 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+.projects_wrapper {
+    display: grid;
+    grid-template-areas: "buttons" "main";
+    grid-template-columns: auto;
+    grid-template-rows: 60px auto;
+}
+
+.buttons_menu_wrapper {
+    grid-area: buttons;
+}
+
 .main {
+    grid-area: main;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 300px;
-    margin-top: 25px;
-    padding: 10px 0;
-  
-    .totalNumber {
-      min-height: 20px;
-    }
-  
-    .textarea {
-      min-height: 16px;
-    }
-  
-    .buttonContainer {
-      height: 90vh;
-      margin: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
-      column-gap: 15px;
-      row-gap: 10px;
-    }
-  
-    .buttonContainer > button {
-      background-color: #8ca0ff;
-      width: 30px;
-      height: 30px;
-    }
-    
-    // .button {
-    //     margin: 10px;
-    //     width: 30px;
-    //     min-width: fit-content;
-    //     height: 30px;
-    //     background-color: rgb(48, 184, 184);
-    //     font-size: 18px;
-    //     border: solid 0.5px;
-    //     cursor: pointer;
-    // }
-  
-    
-  
-  }
+    justify-content: center;
+    width: 100vw;
+    height: 93.5vh;
+    background-color: black;
+    overflow: hidden;
+}
