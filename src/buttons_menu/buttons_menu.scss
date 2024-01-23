@@ -1,9 +1,15 @@
 .buttons_menu_wrapper {
   display: flex;
   justify-content: center;
-  background: linear-gradient(rgb(193, 133, 249), blueviolet, rgb(193, 133, 249));
+  background: linear-gradient(rgb(249, 133, 231), rgb(231, 65, 222), rgb(243, 133, 249));
 
   button {
     cursor: pointer;
+    max-width: 80px;
+    min-width: 80px;
+    margin: 10px;
+    border-radius: 10px;
+    border: solid 2px black;
+    background-color:#abb7f2;
   }
 }

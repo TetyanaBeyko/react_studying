@@ -1,14 +1,15 @@
 import { KeyboardEvent, useState } from 'react';
-import styles from "./calculator.module.scss"
+import styles from "./calculator.module.scss";
+import Lama from "../../../public/al2.png"
+
 
 function Calculator() {
   const [totalNumber, setTotalNumber] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [temporaryInputValue, setTemporaryInputValue] = useState("");
-  const [mathOperator, setMathOperator] = useState("");
   const [disabled, setDisabled] = useState(false);
 
-  const allowedCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "(", ")", "="];
+  const allowedCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "(", ")", "=", "Enter", "Backspace"];
 
   const clearTotalNumber = () => {
     setTotalNumber("");
@@ -23,15 +24,19 @@ function Calculator() {
   // }
 
   const readKey = (event: KeyboardEvent) => {
-    const validateCharacter = allowedCharacters
-      .filter((character) => character === event.key)[0];
-
-    if (validateCharacter === "=") {
-      setTotalNumber(`${inputValue} = ${parse(inputValue)}`);
-    }
+    const validateCharacter = allowedCharacters.filter((character) => character === event.key)[0];
 
     if (validateCharacter !== undefined) {
-      setInputValue(`${inputValue}${validateCharacter}`);
+      if (validateCharacter === "Backspace") {
+        const deleteLastCharacter = inputValue.split("");
+        deleteLastCharacter.pop();
+        const setData = deleteLastCharacter.join("");
+        setInputValue(setData);
+      } else if (validateCharacter === "=" || validateCharacter === "Enter") {
+         setInputValue(`${inputValue}=${parse(inputValue)}`);
+      } else {
+        setInputValue(`${inputValue}${validateCharacter}`);
+      }
     }
   }
 
@@ -47,14 +52,7 @@ function Calculator() {
     }
   }
 
-  const handleMathOperator = (operator: string) => {
-    // equal ↓↓ setTotalNumber(totalNumber + " " + operator + " ");
-    setTotalNumber(`${inputValue} ${operator}`);
-    setTemporaryInputValue(inputValue);
-    setMathOperator(operator);
-    setInputValue("");
-  }
-
+ 
   const calculate = () => {
     // switch (mathOperator) {
     //   case "+": setTotalNumber(`${totalNumber} ${inputValue} = ${Number(temporaryInputValue) + Number(inputValue)}`);
@@ -66,18 +64,18 @@ function Calculator() {
     //   case "/": setTotalNumber(`${totalNumber} ${inputValue} = ${Number(temporaryInputValue) / Number(inputValue)}`);
     //     break;
     // }
-    const result = `${temporaryInputValue} ${mathOperator} ${inputValue}`
-    setTotalNumber(`${totalNumber} ${inputValue} = ${parse(result)}`)
+    const result = `${temporaryInputValue} ${inputValue}`
+    setInputValue(`${totalNumber} ${inputValue} = ${parse(result)}`)
 
-    setInputValue("");
+    // setInputValue("");
     setTemporaryInputValue("");
     setDisabled(true);
   }
-
+  
   return (
     <div className='main'>
       <div className={styles.fon}>
-        <h1>Calculator</h1>
+       <img src={Lama} alt="lama" style={{ width: '50px', }}/>
         <h2 className={styles.totalNumber}>{totalNumber}</h2>
         <textarea className={styles.textarea} value={inputValue} onKeyDown={(event) => readKey(event)} disabled={disabled} />
 
@@ -85,19 +83,19 @@ function Calculator() {
           <button className={styles.number_button} onClick={() => handleInputNumber("7")}>7</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("8")}>8</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("9")}>9</button>
-          <button className={styles.number_button} onClick={() => handleMathOperator("/")}>/</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("/")}>/</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("4")}>4</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("5")}>5</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("6")}>6</button>
-          <button className={styles.number_button} onClick={() => handleMathOperator("*")}>*</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("*")}>*</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("1")}>1</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("2")}>2</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("3")}>3</button>
-          <button className={styles.number_button} onClick={() => handleMathOperator("-")}>-</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("-")}>-</button>
           <button className={styles.number_button} onClick={() => handleInputNumber("0")}>0</button>
           <button className={styles.number_button} onClick={() => handleInputNumber(".")}>.</button>
           <button className={styles.number_button} onClick={calculate}>=</button>
-          <button className={styles.number_button} onClick={() => handleMathOperator("+")}>+</button>
+          <button className={styles.number_button} onClick={() => handleInputNumber("+")}>+</button>
         </div>
 
         {/* {inputValue !== "" && <button className={styles.button} onClick={clearTotalNumber}>Clear</button>} */}
