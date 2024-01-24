@@ -1,7 +1,7 @@
 import { KeyboardEvent, useState } from 'react';
 import styles from "./calculator.module.scss";
 import Lama from "../../../public/al2.png"
-
+import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 
 function Calculator() {
   const [totalNumber, setTotalNumber] = useState("");
@@ -33,7 +33,7 @@ function Calculator() {
         const setData = deleteLastCharacter.join("");
         setInputValue(setData);
       } else if (validateCharacter === "=" || validateCharacter === "Enter") {
-         setInputValue(`${inputValue}=${parse(inputValue)}`);
+        setInputValue(`${inputValue}=${parse(inputValue)}`);
       } else {
         setInputValue(`${inputValue}${validateCharacter}`);
       }
@@ -52,7 +52,7 @@ function Calculator() {
     }
   }
 
- 
+
   const calculate = () => {
     // switch (mathOperator) {
     //   case "+": setTotalNumber(`${totalNumber} ${inputValue} = ${Number(temporaryInputValue) + Number(inputValue)}`);
@@ -71,11 +71,13 @@ function Calculator() {
     setTemporaryInputValue("");
     setDisabled(true);
   }
-  
+  const name = ["Calculator"];
+
   return (
     <div className='main'>
+      <Breadcrumbs names={name} />
       <div className={styles.fon}>
-       <img src={Lama} alt="lama" style={{ width: '50px', }}/>
+        <img src={Lama} alt="lama" style={{ width: '50px', }} />
         <h2 className={styles.totalNumber}>{totalNumber}</h2>
         <textarea className={styles.textarea} value={inputValue} onKeyDown={(event) => readKey(event)} disabled={disabled} />
 
