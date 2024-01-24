@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.scss'
-import Buttons_menu from "./buttons_menu/buttons_menu";
+import Buttons_menu from "./components/buttons_menu/buttons_menu";
 import Calculator from "./Projects/calculator/calculator";
 import Strange_calculator from "./Projects/strange_calculator/strange_calculator"
 
