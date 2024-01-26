@@ -2,8 +2,11 @@ import { KeyboardEvent, useState } from 'react';
 import styles from "./calculator.module.scss";
 import Lama from "../../../public/al2.png"
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
+import breadcrumbsMap from '../../components/breadcrumbs/breadcrumbsMap';
 
 function Calculator() {
+  const projectName = "calculator";
+
   const [totalNumber, setTotalNumber] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [temporaryInputValue, setTemporaryInputValue] = useState("");
@@ -71,11 +74,10 @@ function Calculator() {
     setTemporaryInputValue("");
     setDisabled(true);
   }
-  const name = ["Calculator"];
-
+  
   return (
     <div className='main'>
-      <Breadcrumbs names={name} />
+      <Breadcrumbs names={breadcrumbsMap[projectName]} />
       <div className={styles.fon}>
         <img src={Lama} alt="lama" style={{ width: '50px', }} />
         <h2 className={styles.totalNumber}>{totalNumber}</h2>
