@@ -1,6 +1,6 @@
 import { KeyboardEvent, useState } from 'react';
 import styles from "./calculator.module.scss";
-import Lama from "../../../public/al2.png"
+import Lama from "../../assets/lama.png"
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import breadcrumbsMap from '../../components/breadcrumbs/breadcrumbsMap';
 
@@ -77,10 +77,9 @@ function Calculator() {
   
   return (
     <div className='main'>
-      <Breadcrumbs names={breadcrumbsMap[projectName]} />
-      <div className={styles.fon}>
-        <img src={Lama} alt="lama" style={{ width: '50px', }} />
-        <h2 className={styles.totalNumber}>{totalNumber}</h2>
+      <Breadcrumbs entries={breadcrumbsMap[projectName]} />
+      <div className={styles.background}>
+        <img className={styles.img} src={Lama} alt="lama" />
         <textarea className={styles.textarea} value={inputValue} onKeyDown={(event) => readKey(event)} disabled={disabled} />
 
         <div className={styles.buttonContainer}>

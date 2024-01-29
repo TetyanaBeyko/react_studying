@@ -1,6 +1,6 @@
 const breadcrumbsMap = {
-    calculator: ["Home", "Calculator"],
-    strangeCalculator: ["Home", "Strange Calculator"],
+    calculator: [{name:"Home", path:"/"}, {name:"Calculator", path:""}],
+    strangeCalculator: [{name:"Home", path:"/"}, {name:"Strange Calculator", path:""}],
 }
 
 export default breadcrumbsMap;

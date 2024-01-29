@@ -16,8 +16,8 @@ function Strange_calculator() {
 
   return (
     <div className='main'>
-      <Breadcrumbs names={breadcrumbsMap[projectName]} />
-      <div className={styles.fon}>
+      <Breadcrumbs entries={breadcrumbsMap[projectName]} />
+      <div className={styles.background}>
         <h2>Total number : {totalNumber}</h2>
         <Button state={showWindow} setState={setShowWindow} innerText="Add number" />
         {showWindow && <InputWindow totalNumber={totalNumber} setTotalNumber={setTotalNumber} state={showWindow} setState={setShowWindow} />}

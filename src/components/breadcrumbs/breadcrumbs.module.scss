@@ -1,17 +1,27 @@
-.fon {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: fit-content;
-    height: fit-content;
-    padding: 5px;
+.background {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
 
-    span {
-        padding-right: 5px;
-        font-weight: bold;
+  button {
+    padding-right: 5px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
 
-        &:not(:last-child)::after{
-            content: " >";
-        }
+    &:not(:last-child)::after {
+      content: " >";
     }
+  }
+
+  .navigateButton {
+    cursor: pointer;
+
+    &:hover{
+        border-bottom: solid 2px;
+    }
+  }
 }
