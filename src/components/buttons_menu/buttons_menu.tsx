@@ -9,6 +9,7 @@ const navigate = useNavigate();
             <button type="button" onClick={() => navigate("/")}>Home</button>
             <button type="button" onClick={() => navigate("/strange_calculator")}>Strange Calculator</button>
             <button type="button" onClick={() => navigate("/calculator")}>Calculator</button>
+            <button type="button" onClick={() => navigate("/clock")}>Clock</button>
         </div>
 
     )
