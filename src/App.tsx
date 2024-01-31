@@ -4,7 +4,7 @@ import Buttons_menu from "./components/buttons_menu/buttons_menu";
 import Home from "./pages/home";
 import Calculator from "./Projects/calculator/calculator";
 import Strange_calculator from "./Projects/strange_calculator/strange_calculator";
-import Clock from "./Projects/class_component/clocks";
+import Clock from "./Projects/class_clock/clocks";
 
 function App() {
 
