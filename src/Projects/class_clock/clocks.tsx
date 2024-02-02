@@ -1,4 +1,5 @@
 import React from "react";
+import "../../App.scss";
 
 class Clock extends React.Component<NonNullable<unknown>, { date: Date }> {
   timerID: number | undefined;
@@ -39,19 +40,20 @@ class Clock extends React.Component<NonNullable<unknown>, { date: Date }> {
 
   render() {
     return (
-      <div>
-        <h1>Clock</h1>
-        <this.FormattedDate
-          date={this.state.date}
-          locals="en-us"
-          country="USA"
-        />
+      <div className="main">
+        <h2 className="body">
+          <this.FormattedDate
+            date={this.state.date}
+            locals="en-us"
+            country="USA"
+          />
 
-        <this.FormattedDate
-          date={this.state.date}
-          locals="en-gb"
-          country="Great Britain"
-        />
+          <this.FormattedDate
+            date={this.state.date}
+            locals="en-gb"
+            country="Great Britain"
+          />
+        </h2>
       </div>
     );
   }

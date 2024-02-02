@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Calculator from "./Projects/calculator/calculator";
 import Strange_calculator from "./Projects/strange_calculator/strange_calculator";
 import Clock from "./Projects/class_clock/clocks";
+import Functional_clock from "./Projects/functional_clock/fclock";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/strange_calculator' element={<Strange_calculator />} />
           <Route path='/calculator' element={<Calculator />} />
           <Route path='/clock' element={<Clock />} />
+          <Route path='/fclock' element={<Functional_clock />} />
         </Routes>
       </div>
     </BrowserRouter>
