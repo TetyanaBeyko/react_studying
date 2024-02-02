@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./breadcrumbs.module.scss";
+import {NavigationProps} from "../types/types";
 
 // type BreadcrumbsEntries = {
 //   name: string;
 //   path: string;
 // };
-// function Breadcrumbs({ entries }: BreadcrumbsEntries[] }) {
 // or
+// function Breadcrumbs({ entries }: { entries: {name: string, path: string}[] }) {
 
-function Breadcrumbs({ entries }: { entries: {name: string, path: string}[] }) {
+function Breadcrumbs({ entries }: {entries: NavigationProps[]}) {
+console.debug(entries);
   const navigate = useNavigate();
 
   return (
