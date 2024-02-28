@@ -7,14 +7,17 @@ import Strange_calculator from "./Projects/strange_calculator/strange_calculator
 import Clock from "./Projects/class_clock/clocks";
 import Functional_clock from "./Projects/functional_clock/fclock";
 import Reduser_Component from "./Projects/recucer_component/reduser_component";
+import Calendar from "./Projects/calendar/calendar";
+
 
 const buttonMenuProps = [
   { name: "Home", path: "/" },
   { name: "Strange calculator", path: "/strange_calculator" },
-  { name: "Calculator", path: "/" },
+  { name: "Calculator", path: "/calculator" },
   { name: "Clock", path: "/clock" },
   { name: "Functional clock", path: "/fclock" },
   { name: "Reduser component", path: "/rcomponent" },
+  { name: "Calendar", path: "/calendar" },
 ];
 
 function App() {
@@ -29,6 +32,7 @@ function App() {
           <Route path="/clock" element={<Clock />} />
           <Route path="/fclock" element={<Functional_clock />} />
           <Route path="/rcomponent" element={<Reduser_Component />} />
+          <Route path="/calendar" element={<Calendar />} />
         </Routes>
       </div>
     </BrowserRouter>

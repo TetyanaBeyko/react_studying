@@ -1,17 +1,38 @@
 import { useState } from "react";
+import { useReducer } from "react";
+
+type Action = {
+  type: string;
+  text: string;
+};
+
+const reduser = (bookList: string[], action: Action) => {
+  if (action.type === "added") {
+    return [...bookList, action.text];
+  } else{
+    throw Error("There is no such action")
+  }
+};
 
 export default function Reduser_Component() {
   const [text, setText] = useState("");
 
-  const [bookList, setBookList] = useState<string[]>([]);
+  const [bookList, dispatch] = useReducer(reduser, []);
 
   const readImputValue = (target: HTMLInputElement) => {
     setText(target.value);
   };
 
+  // const addName = () => {
+  //   setBookList([...bookList, text]);
+  //   setText("")
+  // };
+
   const addName = () => {
-    setBookList([...bookList, text]);
-    setText("")
+    dispatch({
+      type: "added",
+      text: text,
+    });
   };
 
   return (
