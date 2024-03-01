@@ -41,7 +41,7 @@ class Clock extends React.Component<NonNullable<unknown>, { date: Date }> {
   render() {
     return (
       <div className="main">
-        <h2 className="body">
+        <div className="body">
           <this.FormattedDate
             date={this.state.date}
             locals="en-us"
@@ -53,7 +53,7 @@ class Clock extends React.Component<NonNullable<unknown>, { date: Date }> {
             locals="en-gb"
             country="Great Britain"
           />
-        </h2>
+        </div>
       </div>
     );
   }

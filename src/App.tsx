@@ -8,6 +8,7 @@ import Clock from "./Projects/class_clock/clocks";
 import Functional_clock from "./Projects/functional_clock/fclock";
 import Reduser_Component from "./Projects/recucer_component/reduser_component";
 import Calendar from "./Projects/calendar/calendar";
+import Weather from "./Projects/weather/weather";
 
 
 const buttonMenuProps = [
@@ -18,6 +19,7 @@ const buttonMenuProps = [
   { name: "Functional clock", path: "/fclock" },
   { name: "Reduser component", path: "/rcomponent" },
   { name: "Calendar", path: "/calendar" },
+  { name: "Weather", path: "/weather" },
 ];
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
           <Route path="/fclock" element={<Functional_clock />} />
           <Route path="/rcomponent" element={<Reduser_Component />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/weather" element={<Weather />} />
         </Routes>
       </div>
     </BrowserRouter>
