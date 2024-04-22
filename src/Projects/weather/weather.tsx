@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import "./weather.scss";
 import { RootState, AppDispatch } from "./store";
 import { fetchWeather } from "./weather_slice";
-import { CityMapKeys } from "./types";
 import { cityMap } from "./cityMap";
 import sun from "../../assets/weather/sun.png";
 import clouds_sun from "../../assets/weather/clouds_sun.png";
@@ -24,13 +23,13 @@ function Weather() {
     imageWeather = sun;
   }
 
-  const [cityName, setCityName] = useState<CityMapKeys>("Lviv");
+  const [cityName, setCityName] = useState("Lviv");
 
   useEffect(() => {
     dispatch(fetchWeather(cityName));
   }, [dispatch, cityName]);
 
-  const handleCityName = (value: CityMapKeys) => {
+  const handleCityName = (value: string) => {
     setCityName(value);
   };
 
@@ -42,9 +41,7 @@ function Weather() {
             <h1>Weather for today</h1>
             <select
               className="citySelect"
-              onChange={(event) =>
-                handleCityName(event.target.value as CityMapKeys)
-              }
+              onChange={(event) => handleCityName(event.target.value)}
             >
               {Object.keys(cityMap).map((key) => (
                 <option key={key} value={key}>

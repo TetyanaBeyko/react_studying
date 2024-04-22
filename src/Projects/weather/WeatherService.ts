@@ -21,10 +21,11 @@ const APIService = {
 };
 
 const WeatherService = {
-  getData: async (cityName: CityMapKeys) =>
-    APIService.get(cityMap[cityName])
+  getData: async (cityName: string) => {
+    return APIService.get(cityMap[cityName as CityMapKeys])
       .then((response) => response.json())
-      .then((json) => json),
+      .then((json) => json);
+  },
 };
 
 export default WeatherService;
